@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<style>
+h2 {
+    font-family: Arial, sans-serif;  /* Cambia la fuente del título */
+    font-size: 24px;  /* Cambia el tamaño de la fuente del título */
+}
+p {
+    font-family: Times New Roman, serif;  /* Cambia la fuente del párrafo */
+    font-size: 16px;  /* Cambia el tamaño de la fuente del párrafo */
+}
+</style>
+<br>
+{% for post in posts %}
+<div class="content p-3">
+  <div class="card card-body">
+    <div class="row">
+        <div class="col-3">
+            <div class="imag">
+            <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid">
+            </div>
+        </div>
+            <div class="col-9">
+                <h2>{{post.title}}</h2>
+                <p>{{post.date|date:'M d Y'}}</p> 
+                <div class ="letra">
+                <p>{{post.description|striptags|truncatechars:70}}<a href="{% url 'link:post_detail' post.id%}"class="link-secondary"> seguir leyendo</a>
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endfor%}
+
+{% endblock %}
+
+

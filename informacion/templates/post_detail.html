@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="p-5">
+<div class="card card-body">
+
+<div class="text-center">
+<h2>{{post.title}}</h2>
+<h3 class="my-2 h5 text-muted">{{post.date}}</h3>
+</div>
+<hr>
+<div class="editext">
+<p>{{post.description|safe}}</p>
+</div>
+<hr>
+<img src="{{post.image.url}}" alt="{{post.title}}">
+</div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% for project in projects %}
+
+<div class="content p-5">
+<div class="card card-body">
+    <h2 class="tit">{{project.title}}</h2>
+    <p class="descolor">{{project.description}}
+        {% if project.url %}
+        <a href="{{project.url}}"class="linkcolor">Ver</a>
+        {%endif%}
+    </p>
+    
+    <img src="{{project.image.url}}" alt="{{project.title}}">
+
+</div>
+</div>
+{%endfor%}
+
+{% endblock  %}
